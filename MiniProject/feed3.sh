@@ -1,0 +1,3 @@
+#!/bin/bash
+​
+PGPASSWORD="root" psql -h 'localhost' -U 'postgres' -d "finalproject" --command "DELETE FROM feed3;" -c "\COPY feed3(_id,report_date,desk_id,product_id,quantity_0_30,quantity_31_60,quantity_61_90,quantity_91_180,quantity_181_360,quantity_GT360) FROM 'feed3.csv' DELIMITER ',' CSV HEADER;" -c "update feed3 set desk_id = 'd'||desk_id;" -c "update feed3 set product_id = '3p'||product_id;" -c "select COUNT(*) from feed3;"
